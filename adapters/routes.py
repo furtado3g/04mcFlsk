@@ -89,13 +89,13 @@ def upload_image(current_user):
         img = Image.open(file)
         img = img.convert('RGB')
         img = img.resize((500, 500))
-        upload_folder = os.path.join(current_app.root_path, 'uploads')
+        upload_folder = os.path.join(current_app.root_path, 'static', 'profilePics')
         os.makedirs(upload_folder, exist_ok=True)
         filename = f'user_{current_user.id}.jpg'
         file_path = os.path.join(upload_folder, filename)
         img.save(file_path, optimize=True, quality=85)
         # Associa caminho ao usuário
-        current_user.image_path = f'uploads/{filename}'
+        current_user.image_path = f'static/profilePics/{filename}'
         db.session.commit()
         return {'message': 'Imagem enviada e otimizada com sucesso'}, 200
     except Exception as e:

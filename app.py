@@ -4,7 +4,7 @@ from entities.user import db
 from flask import Flask
 from flasgger import Swagger
 
-app = Flask(__name__, static_folder='uploads', static_url_path='/static')
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.config['SECRET_KEY'] = 'uma-chave-super-secreta-e-dificil-de-adivinhar'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///moto_clube.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

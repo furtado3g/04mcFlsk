@@ -37,6 +37,30 @@ Este projeto é uma API RESTful para gerenciamento de usuários de um Moto Clube
 - `GET /users/<user_id>` — Consulta perfil por ID (token obrigatório)
 - `DELETE /users/<auth_id>` — Deleta usuário (token obrigatório)
 
+### Upload e acesso de imagens de perfil
+
+- `POST /upload_image` — Upload de imagem de perfil do usuário autenticado (token obrigatório, multipart/form-data, campo `image`).
+  - A imagem será otimizada e redimensionada para 500x500 pixels.
+  - O arquivo será salvo em `static/profilePics/user_<id>.jpg`.
+  - O campo `image_path` no perfil do usuário retorna o caminho relativo para a imagem.
+- Imagens podem ser acessadas publicamente via:
+  - `GET /static/profilePics/user_<id>.jpg`
+
+#### Exemplo de upload via curl
+```bash
+curl -X POST http://localhost:5000/api/v1/upload_image \
+  -H "Authorization: Bearer <SEU_TOKEN>" \
+  -F "image=@/caminho/para/sua/imagem.jpg"
+```
+
+#### Exemplo de acesso à imagem
+```
+http://localhost:5000/static/profilePics/user_1.jpg
+```
+
+### Documentação interativa
+- Acesse `/apidocs` para visualizar e testar todas as rotas via Swagger UI.
+
 ## Observações
 - O banco usado é SQLite, criado automaticamente no primeiro run.
 - O projeto está pronto para expansão, separando regras de negócio, modelos e rotas para facilitar manutenção e testes.
