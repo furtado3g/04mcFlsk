@@ -1,0 +1,70 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Pytest
+.cache/
+
+# Flask instance folder
+instance/
+
+# SQLite and DB
+*.sqlite3
+*.db
+*.sqlite
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Test output
+htmlcov/
+coverage.xml
+*.cover
+*.py,cover
+
+# Ignore environment/config files
+.env
+.env.*
+
+# Ignore pip/uv/poetry
+pip-log.txt
+pip-delete-this-directory.txt
+uv.lock
+poetry.lock
